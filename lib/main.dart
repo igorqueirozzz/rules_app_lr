@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rules_app/ui/equity/screen/equity_screen.dart';
 import 'package:rules_app/ui/productivity_chart/screen/productivity_chart_screen.dart';
 
 void main() {
@@ -17,6 +16,6 @@ class MainApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
     ]);
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    return const MaterialApp(home: Material(child: EquityScreen()));
+    return const MaterialApp(home: Material(child: ProductivityChartScreen()));
   }
 }

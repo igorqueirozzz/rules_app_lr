@@ -1,6 +1,8 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rules_app/ui/equity/viewmodel/equity_screen_viewmodel.dart';
+import 'package:rules_app/ui/final_screen/screen/final_screen.dart';
 import 'package:video_player/video_player.dart';
 
 class EquityScreen extends StatefulWidget {
@@ -14,6 +16,8 @@ class _EquityScreenState extends State<EquityScreen> {
   late final VideoPlayerController _videoPlayerController;
   late final TextEditingController _passwordTextController;
   final EquityScreenViewModel _equityScreenViewModel = EquityScreenViewModel();
+
+  bool _showInvalidMessage = false;
 
   @override
   void initState() {
@@ -42,7 +46,13 @@ class _EquityScreenState extends State<EquityScreen> {
     return Stack(
       alignment: Alignment.center,
       children: [
-        VideoPlayer(_videoPlayerController),
+        Positioned(
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: VideoPlayer(_videoPlayerController),
+        ),
 
         Positioned(
           top: 160,
@@ -124,16 +134,61 @@ class _EquityScreenState extends State<EquityScreen> {
                                       .equityRules[index]
                                       .selected,
                               onChanged: (_) {
-                                _equityScreenViewModel.onCorruptedRuleTap(
-                                  index,
-                                );
+                                _equityScreenViewModel.onEquityRuleTap(index);
                               },
                             ),
                           ],
                         ),
                     separatorBuilder: (context, index) => const Divider(),
-                    itemCount: _equityScreenViewModel.corruptedRules.length,
+                    itemCount: _equityScreenViewModel.equityRules.length,
                   ),
+            ),
+          ),
+        ),
+
+        Positioned(
+          bottom: 16,
+          child: SizedBox(
+            width: 250,
+            height: 100,
+            child: Column(
+              spacing: 16,
+              children: [
+                if (_showInvalidMessage)
+                  AnimatedTextKit(
+                    isRepeatingAnimation: false,
+                    animatedTexts: [
+                      TyperAnimatedText(
+                        'Regras selecionadas inválidas!',
+                        textStyle: Theme.of(
+                          context,
+                        ).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                        ),
+                      ),
+                    ],
+                  ),
+                GestureDetector(
+                  onTap: () {
+                    if (_equityScreenViewModel.canGoNext) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => FinalScreen()),
+                      );
+                    } else {
+                      setState(() {
+                        _showInvalidMessage = true;
+                      });
+
+                      Future.delayed(
+                        const Duration(seconds: 2, milliseconds: 500),
+                        () => setState(() => _showInvalidMessage = false),
+                      );
+                    }
+                  },
+                  child: Image.asset('assets/image/reset_button.png'),
+                ),
+              ],
             ),
           ),
         ),

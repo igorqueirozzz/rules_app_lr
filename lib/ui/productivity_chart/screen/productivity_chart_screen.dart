@@ -49,7 +49,13 @@ class _ProductivityChartScreenState extends State<ProductivityChartScreen> {
     return Stack(
       alignment: Alignment.center,
       children: [
-        VideoPlayer(_videoPlayerController),
+        Positioned(
+          top: 0,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          child: VideoPlayer(_videoPlayerController),
+        ),
         AnimatedOpacity(
           duration: const Duration(seconds: 1),
           opacity: _showPasswordCard ? 1.0 : 0.0,
@@ -155,25 +161,25 @@ class _ProductivityChartScreenState extends State<ProductivityChartScreen> {
             ),
           ),
         ),
-        if(!_showPasswordCard)
-        Positioned(
-          bottom: 32,
-          child: GestureDetector(
-            onTap: () {
-              setState(() {
-                _showPasswordCard = true;
-              });
-            },
-            child: SizedBox(
-              width: 250,
-              height: 150,
-              child: Image.asset(
-                'assets/image/config_button.png',
-                fit: BoxFit.cover,
+        if (!_showPasswordCard)
+          Positioned(
+            bottom: 32,
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _showPasswordCard = true;
+                });
+              },
+              child: SizedBox(
+                width: 250,
+                height: 150,
+                child: Image.asset(
+                  'assets/image/config_button.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
-        ),
       ],
     );
   }
