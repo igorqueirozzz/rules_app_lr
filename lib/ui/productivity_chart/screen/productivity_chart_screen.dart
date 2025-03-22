@@ -4,7 +4,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rules_app/ui/equity/screen/equity_screen.dart';
-import 'package:video_player/video_player.dart';
+
 
 class ProductivityChartScreen extends StatefulWidget {
   const ProductivityChartScreen({super.key});
@@ -15,7 +15,7 @@ class ProductivityChartScreen extends StatefulWidget {
 }
 
 class _ProductivityChartScreenState extends State<ProductivityChartScreen> {
-  late final VideoPlayerController _videoPlayerController;
+  // late final VideoPlayerController _videoPlayerController;
   late final TextEditingController _passwordTextController;
 
   final _password = '90811000';
@@ -25,22 +25,22 @@ class _ProductivityChartScreenState extends State<ProductivityChartScreen> {
   @override
   void initState() {
     super.initState();
-    _videoPlayerController =
-        VideoPlayerController.asset('assets/video/productivity_chart.mp4')
-          ..initialize()
-          ..setLooping(true);
+    // _videoPlayerController =
+    //     VideoPlayerController.asset('assets/video/productivity_chart.mp4')
+    //       ..initialize()
+    //       ..setLooping(true);
 
     _passwordTextController = TextEditingController();
 
-    if (!kDebugMode) {
-      _videoPlayerController.play();
-    }
+    // if (!kDebugMode) {
+    //   _videoPlayerController.play();
+    // }
   }
 
   @override
   void dispose() {
     super.dispose();
-    _videoPlayerController.dispose();
+    // _videoPlayerController.dispose();
     _passwordTextController.dispose();
   }
 
@@ -54,7 +54,7 @@ class _ProductivityChartScreenState extends State<ProductivityChartScreen> {
           bottom: 0,
           left: 0,
           right: 0,
-          child: VideoPlayer(_videoPlayerController),
+          child: Image.asset('assets/image/sebrae.jpg', fit: BoxFit.cover,),
         ),
         AnimatedOpacity(
           duration: const Duration(seconds: 1),

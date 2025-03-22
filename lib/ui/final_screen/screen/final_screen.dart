@@ -1,8 +1,7 @@
 import 'dart:ui';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+
 
 class FinalScreen extends StatefulWidget {
   const FinalScreen({super.key});
@@ -12,20 +11,20 @@ class FinalScreen extends StatefulWidget {
 }
 
 class _FinalScreenState extends State<FinalScreen> {
-  late final VideoPlayerController _videoPlayerController;
+  // late final VideoPlayerController _videoPlayerController;
   bool _showCode = false;
 
   @override
   void initState() {
     super.initState();
-    _videoPlayerController =
-        VideoPlayerController.asset('assets/video/restored_equilibrium.mp4')
-          ..setLooping(true)
-          ..initialize();
+    // _videoPlayerController =
+    //     VideoPlayerController.asset('assets/video/restored_equilibrium.mp4')
+    //       ..setLooping(true)
+    //       ..initialize();
 
-    if (!kDebugMode) {
-      _videoPlayerController.play();
-    }
+    // if (!kDebugMode) {
+    //   _videoPlayerController.play();
+    // }
 
     Future.delayed(
       const Duration(seconds: 3, milliseconds: 500),
@@ -36,7 +35,7 @@ class _FinalScreenState extends State<FinalScreen> {
   @override
   void dispose() {
     super.dispose();
-    _videoPlayerController.dispose();
+    // _videoPlayerController.dispose();
   }
 
   @override
@@ -49,7 +48,7 @@ class _FinalScreenState extends State<FinalScreen> {
           bottom: 0,
           left: 0,
           right: 0,
-          child: VideoPlayer(_videoPlayerController),
+          child: Image.asset('assets/image/sebrae.jpg', fit: BoxFit.cover,),
         ),
         AnimatedOpacity(
           duration: const Duration(seconds: 1),

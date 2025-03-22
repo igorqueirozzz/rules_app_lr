@@ -10,7 +10,6 @@ dependencies:
   animated_text_kit: ^4.2.3
   flutter:
     sdk: flutter
-  video_player: ^2.9.3
 
 dev_dependencies:
   flutter_test:

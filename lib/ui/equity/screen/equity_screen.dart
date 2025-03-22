@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:rules_app/ui/equity/viewmodel/equity_screen_viewmodel.dart';
 import 'package:rules_app/ui/final_screen/screen/final_screen.dart';
-import 'package:video_player/video_player.dart';
+
 
 class EquityScreen extends StatefulWidget {
   const EquityScreen({super.key});
@@ -13,7 +13,7 @@ class EquityScreen extends StatefulWidget {
 }
 
 class _EquityScreenState extends State<EquityScreen> {
-  late final VideoPlayerController _videoPlayerController;
+ // late final VideoPlayerController _videoPlayerController;
   late final TextEditingController _passwordTextController;
   final EquityScreenViewModel _equityScreenViewModel = EquityScreenViewModel();
 
@@ -22,22 +22,22 @@ class _EquityScreenState extends State<EquityScreen> {
   @override
   void initState() {
     super.initState();
-    _videoPlayerController =
-        VideoPlayerController.asset('assets/video/corrupted_equity_list.mp4')
-          ..initialize()
-          ..setLooping(true);
+    // _videoPlayerController =
+    //     VideoPlayerController.asset('assets/video/corrupted_equity_list.mp4')
+    //       ..initialize()
+    //       ..setLooping(true);
 
     _passwordTextController = TextEditingController();
 
     if (!kDebugMode) {
-      _videoPlayerController.play();
+      // _videoPlayerController.play();
     }
   }
 
   @override
   void dispose() {
     super.dispose();
-    _videoPlayerController.dispose();
+    // _videoPlayerController.dispose();
     _passwordTextController.dispose();
   }
 
@@ -51,7 +51,7 @@ class _EquityScreenState extends State<EquityScreen> {
           bottom: 0,
           left: 0,
           right: 0,
-          child: VideoPlayer(_videoPlayerController),
+          child: Image.asset('assets/image/sebrae.jpg', fit: BoxFit.cover,),
         ),
 
         Positioned(
