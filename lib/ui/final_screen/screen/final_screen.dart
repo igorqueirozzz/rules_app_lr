@@ -18,7 +18,7 @@ class _FinalScreenState extends State<FinalScreen> {
   void initState() {
     super.initState();
     // _videoPlayerController =
-    //     VideoPlayerController.asset('assets/video/restored_equilibrium.mp4')
+    //     VideoPlayerController.asset('assets/gif/restored_equilibrium.mp4')
     //       ..setLooping(true)
     //       ..initialize();
 
@@ -48,7 +48,7 @@ class _FinalScreenState extends State<FinalScreen> {
           bottom: 0,
           left: 0,
           right: 0,
-          child: Image.asset('assets/image/sebrae.jpg', fit: BoxFit.cover,),
+          child: Image.asset('assets/gif/equilibrium_restored.gif', fit: BoxFit.cover,),
         ),
         AnimatedOpacity(
           duration: const Duration(seconds: 1),
