@@ -48,7 +48,7 @@ class _FinalScreenState extends State<FinalScreen> {
           bottom: 0,
           left: 0,
           right: 0,
-          child: Image.asset('assets/gif/equilibrium_restored.gif', fit: BoxFit.cover,),
+          child: Image.asset('assets/gif/equilibrium_restored.gif', fit: BoxFit.fill,),
         ),
         AnimatedOpacity(
           duration: const Duration(seconds: 1),

@@ -44,9 +44,9 @@ class _EquityScreenState extends State<EquityScreen> {
           ),
       
           Positioned(
-            top: 160,
-            left: 48,
-            right: 48,
+            top: 210,
+            left: 64,
+            right: 64,
             child: Center(
               child: ListenableBuilder(
                 listenable: _equityScreenViewModel,
@@ -89,9 +89,9 @@ class _EquityScreenState extends State<EquityScreen> {
           ),
       
           Positioned(
-            top: 550,
-            left: 48,
-            right: 48,
+            top: 680,
+            left: 64,
+            right: 64,
             child: Center(
               child: ListenableBuilder(
                 listenable: _equityScreenViewModel,
